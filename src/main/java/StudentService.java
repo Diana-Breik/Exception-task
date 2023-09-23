@@ -13,4 +13,10 @@ public class StudentService {
     public List<Student> getAllStudents(){
         return repo.getAllStudents();
     }
+
+    public Student findByID(String id){
+        return repo.findStudentById(id)
+                .orElseThrow(()->new IllegalArgumentException("No student with id: " + id + " found!"));
+
+    }
 }
